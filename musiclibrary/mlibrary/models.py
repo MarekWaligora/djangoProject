@@ -32,6 +32,7 @@ class Album(models.Model):
     albmusickind=models.ForeignKey(MusicKind,on_delete=models.SET_NULL,null=True,verbose_name="Kind of Music")
     alblabel=models.CharField(max_length=100,verbose_name="Labelled by")
     albtype=models.CharField(max_length=50,verbose_name="carrier type")
+    #zmiemnic na liste [DVD, CD , BLUE RAY]
     #currently borrowed or free
     ALBSTATUS=[('H','On Hand'),('B','Borrowed')]
     
