@@ -47,11 +47,11 @@ class Borrow(models.Model):
     
 
 class Borrower(models.Model):
-    brName=models.CharField(max_length=100,verbose_name="Name")
-    brSurname=models.CharField(max_length=100,verbose_name="Surname")
-    brMail=models.CharField(max_length=40,verbose_name="Mail")
-    brPhone=models.CharField(max_length=20,verbose_name="Phone")
-    brBorrow=models.ManyToManyField(
+    brname=models.CharField(max_length=100,verbose_name="Name")
+    brsurname=models.CharField(max_length=100,verbose_name="Surname")
+    brmail=models.CharField(max_length=40,verbose_name="Mail")
+    brphone=models.CharField(max_length=20,verbose_name="Phone")
+    brborrow=models.ManyToManyField(
         Album,
         through='Borrow',
     )
