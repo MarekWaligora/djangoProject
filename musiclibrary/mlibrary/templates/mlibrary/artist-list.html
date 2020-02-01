@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- <h1>Lista artystow</h1> -->
+<table>
+    <thead>
+        <tr>
+            <th>Band Name</th>
+            <th>Raise Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for artist in artist_list %}
+        <tr>
+            <td>{{artist.artname}}</td>
+            <td>{{artist.art_est_date}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-- {# for artist in art #} -->
+{% endblock %}

@@ -23,7 +23,7 @@ class Artist(models.Model):
 
     artname=models.CharField(max_length=200,verbose_name="Artist Name",unique=True)
     artkind=models.ForeignKey(MusicKind,on_delete=models.SET_NULL,null=True,verbose_name="Kind of Music")
-    art_est_date=models.DateTimeField(verbose_name="Raise Date")
+    art_est_date=models.DateField(verbose_name="Raise Date")
 
    
     class Meta:
@@ -85,15 +85,17 @@ class Borrow(models.Model):
     album=models.ForeignKey(Album,on_delete=models.CASCADE,verbose_name="Album Id")
     borrower=models.ForeignKey(Borrower,on_delete=models.CASCADE,verbose_name="Borrower ID")
     borrow_date=models.DateField(verbose_name="Borrow Date")
-    exp_return_date=models.DateField(verbose_name="Expect Return Date")
-    #???? Wyrzucic to pole z modelu i obliczac go dunamicznie jako borrow_date +parametr
-    return_date=models.DateField(verbose_name="Return Date",null=True)
+    # exp_return_date=models.DateField(verbose_name="Expect Return Date",null=True)
+    #???? Wyrzucic to pole z modelu i obliczac go dynamicznie jako borrow_date +parametr
+    #blank powoduje ze pole w formularzu przestaje byc obowiazkowe defaultowo jest blank=False
+    #null - domyslnie jest False trzeba jawnie w modelu wskazac jako True. To jest dla bazy danych NOT NULL
+    return_date=models.DateField(verbose_name="Return Date",null=True,blank=True)
     first_monit_date=models.DateField(verbose_name="1st Monit Date", null=True)
     second_monit_date=models.DateField(verbose_name="2nd Monit Date",null=True)
 
     class Meta:
         pass
-        # consider which field and how should be presented
+       
 
     def __str__(self):
         return f"{self.borrower.brname} {self.borrower.brsurname}" 

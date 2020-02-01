@@ -6,7 +6,7 @@ class MusicKindAdmin(admin.ModelAdmin):
      ordering=['mkshortdesc']
 
 class ArtistAdmin(admin.ModelAdmin):
-     list_display=['artname','art_est_date']
+     list_display=['artname',]
      ordering=['artname']
 
 class BorrowInline(admin.TabularInline):

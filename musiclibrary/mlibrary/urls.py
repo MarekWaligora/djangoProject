@@ -1,7 +1,11 @@
 from django.urls import path
 from . import views
 
-urlpatterns=[
-#mlibary/artist
-path('artists/',views.ListArtist.as_view(),name="artist-list")
+urlpatterns = [
+#mlibrary/artists
+    path('artists/',views.ListArtist.as_view(),name="artist-list"),
+#mlibrary/borrow-register
+    path('borrow-register/',views.BorrowCreate.as_view(),name="borrow-register"),   
+#mlibrary/borrow-list
+    path('borrow-list/',views.BorrowsView.as_view(),name="borrow-list")     
 ]

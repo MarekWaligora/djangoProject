@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- <h1>Lista wypozyczen</h1> -->
+<table>
+    <thead>
+        <tr>
+            <th>Album Name</th>
+            <th>Borrower</th>
+            <th>Borrow Date</th>
+            <th>Exp Return Date</th>
+            <th>Return Date</th>
+            <th>1st Monit Date</th>
+            <th>2nd Monit Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for borrow in borrow_list %}
+        <tr>
+            <td>{{borrow.album}}</td>
+            <td>{{borrow.borrower}}</td>
+            <td>{{borrow.borrow_date}}</td>
+            <td>{{borrow.exp_return_date}}</td>
+            <td>{{borrow.return_date}}</td>
+            <td>{{borrow.first_monit_date}}</td>
+            <td>{{borrow.second_monit_date}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-- {# for artist in art #} -->
+{% endblock %}
