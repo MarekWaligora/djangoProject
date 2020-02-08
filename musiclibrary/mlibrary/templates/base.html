@@ -8,14 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="{% static 'mlibrary/style.css'   %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
 </head>
 
 <body>
     <h1>{{title}}</h1>
     {% block content %}
-
+    <header class="container-horizontal">
+        <h1><a href="/">My Music Library</a></h1>
+        <nav>
+            <ul class="container-horizontal">
+                <li class="container"><a href="">Artist List</a></li>
+                <li class="container"><a href="">Album List </a></li>
+                <li class="container"><a href="">Borrow List</a></li>
+                <li class="container"><a href="">Borrower</a></li>
+                <li class="container"><a href="">Register Borrows</a></li>
+                {if user.is_authenticated %}
+                <li class=container>Hello,{{ user.first_name }}</li>
+                <li class=container><a href="{% url 'logout %}">Logout</li>
+                {% else %}
+                <li class=container><a href="{% url 'logout %}">Logout</li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
     {% endblock %}
 
 </body>

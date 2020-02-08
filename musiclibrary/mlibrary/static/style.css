@@ -1,0 +1,24 @@
+body {
+    background-color: cornflowerblue;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+th {
+    background-color: violet;
+    border: 2px black solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 3px 20px;
+}
+
+td {
+    /* border-top: 2px solid black; */
+    border-bottom: 2px solid black;
+    padding-left: 10px;
+    /* margin: 3px 20px; */
+    margin-right: 20px;
+}

@@ -1,13 +1,24 @@
 from django.shortcuts import render
 from django.urls import reverse,reverse_lazy
-from django.views.generic import ListView,CreateView
+from django.views.generic import ListView,CreateView,TemplateView
 from .models import Artist,Borrow,Borrower,Album
 from django.db.models import F,ExpressionWrapper,DateField
 from datetime import datetime, timedelta, timezone, tzinfo
+from django.contrib.auth.mixins import LoginRequiredMixin #dow wifdokow CBV
 # from django.views.generic import 
+from django.contrib.auth.decorators import login_required #FBV
 # Create your views here.
 
-# /mlibrary
+
+class StatsView(LoginRequiredMixin,TemplateView):
+    template_name='mlibrary/stats.html'
+    extra_context={
+        'title':"Stats",
+    }
+    # def get_context_data()
+
+
+# /mlibrary/index
 def index(request):
     artists=Artist.objects.all().order_by('artname')
     context = {
@@ -41,6 +52,7 @@ class BorrowCreate(CreateView):
         'title': "Zarejestruj Wypozyczenie",
     }
     # Po zapisaniu przekierowac go do listy wypozyczen
+    # i zauktuakizowac pole pozyczono w liscie plyt 
 
 
 class BorrowsView(ListView):
